@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PersonalInfo from './components/PersonalInfo';
 import Objective from './components/Objective';
 import Experience from './components/Experience';
 import Education from './components/Education';
+import Form from './components/Form';
+import Resume from './components/Resume';
 
 class App extends Component {
   constructor() {
@@ -31,17 +34,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-        <form id='form' onSubmit={this.handleSubmit}>
-          <PersonalInfo />
-          <Objective />
-          <Experience />
-          <Education />
-          <div id='submit-container'>
-            <input type='submit' id='submit'></input>
-          </div>
-        </form>
-      </div>
+      <BrowserRouter>
+        <div className='App'>
+          <Switch>
+            <Route path='/' render={() => <Form />} exact />
+            <Route path='/resume' render={() => <Resume />} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -8,18 +8,25 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
+  background-color: white;
   /* height: 100vh; */
-  height: 100%;
+
   overflow: auto;
 }
 
 .App {
   width: 850px;
   margin: 20px;
-  /* height: 95%; */
   box-shadow: 1px 2px 6px #333333;
   background-color: white;
+  height: 100%;
+}
+
+/* Resume */
+
+#resume-container {
+  height: 100%;
 }
 
 /* Header */
@@ -29,7 +36,7 @@
   text-align: center;
   color: #f4f4f4;
   padding: 10px;
-  height: 10%;
+  height: 100px;
 }
 
 #name {
@@ -53,8 +60,8 @@
 
 #main {
   display: flex;
-  height: 88%;
-  background-color: #f4f4f4;
+  height: 87.3%;
+  background-color: white;
   width: 100%;
 }
 
@@ -319,7 +326,7 @@ p {
 
 #submit {
   background-color: #0e2f44;
-  padding: 15px 30px;
+  padding: 10px 20px;
   margin: 40px;
   color: white;
   background-color: #0e2f44;

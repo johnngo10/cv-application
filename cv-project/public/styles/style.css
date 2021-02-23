@@ -124,13 +124,19 @@ p {
 }
 
 /* Forms */
+/* #form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
 
 /* Personal Info */
 #pesonal-info-form-container {
   padding: 40px 40px 0 40px;
 }
 
-#pesonal-info-form-container form {
+.pesonal-info-form {
   margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
@@ -169,7 +175,7 @@ p {
   padding: 0 40px 20px 40px;
 }
 
-#experience-container form {
+.experience-form {
   margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
@@ -217,7 +223,7 @@ p {
   padding: 0 40px 20px 40px;
 }
 
-#education-container form {
+.education-form {
   margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
@@ -249,7 +255,7 @@ p {
   padding: 0 40px 20px 40px;
 }
 
-#cert-container form {
+.cert-form {
   margin: 10px 0;
   display: flex;
   flex-wrap: wrap;
@@ -302,4 +308,22 @@ p {
 .toggle-ongoing {
   width: 20%;
   margin-right: 4px;
+}
+
+/* Submit form */
+#submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+  background-color: #0e2f44;
+  padding: 15px 30px;
+  margin: 40px;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 }

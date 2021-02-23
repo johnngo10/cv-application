@@ -9,7 +9,8 @@
   justify-content: center;
   /* align-items: center; */
   background-color: #eeeeee;
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
   overflow: auto;
 }
 
@@ -213,7 +214,7 @@ p {
 /* Education */
 
 #education-container {
-  padding: 0 40px;
+  padding: 0 40px 20px 40px;
 }
 
 #education-container form {
@@ -223,7 +224,7 @@ p {
   justify-content: space-between;
 }
 
-#education-container input {
+.education-input {
   padding: 10px;
   margin: 5px 0;
   width: 45%;
@@ -240,4 +241,65 @@ p {
   border: none;
   border-radius: 2px;
   cursor: pointer;
+}
+
+/* Licenses & Certificates */
+
+#cert-container {
+  padding: 0 40px 20px 40px;
+}
+
+#cert-container form {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#cert-container input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 45%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+/* Present Date Switch */
+
+.from-date:before {
+  content: attr(placeholder) !important;
+  color: gray;
+  margin-right: 0.5em;
+}
+
+.to-date {
+  width: 28.5%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+.to-date:before {
+  content: attr(placeholder) !important;
+  color: gray;
+  margin-right: 0.5em;
+}
+
+.to-date:focus:before,
+.to-date:valid:before {
+  content: '';
+}
+
+.switch {
+  display: inline-block;
+  margin: auto 0;
+  width: 12%;
+}
+
+.toggle-ongoing {
+  width: 20%;
+  margin-right: 4px;
 }

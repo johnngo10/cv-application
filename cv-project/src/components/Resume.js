@@ -1,27 +1,38 @@
 import React, { Component } from 'react';
 
 class Resume extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   render() {
+    const {
+      firstName,
+      lastName,
+      email,
+      number,
+      address,
+      city,
+      state,
+      zip,
+      objective,
+      title,
+    } = this.props;
+
     return (
       <div id='resume-container'>
         <header id='header'>
-          <h1 id='name'>John Doe</h1>
+          <h1 id='name'>
+            {firstName} {lastName}
+          </h1>
           <div className='divider'></div>
-          <div id='title'>Junior Software Developer</div>
+          <div id='title'>{title}</div>
         </header>
         <main id='main'>
           <div id='col-1'>
             <div id='objective'>
               <div>
                 <h2 className='category'>Resume Objective</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Morbi leo urna molestie at elementum eu facilisis sed odio.
-                </p>
+                <p>{objective}</p>
               </div>
             </div>
             <div>
@@ -74,15 +85,17 @@ class Resume extends Component {
             <div id='info-container'>
               <div className='info'>
                 <i className='fas fa-envelope info-icon'></i>
-                <p>johndoe@gmail.com</p>
+                <p>{email}</p>
               </div>
               <div className='info'>
                 <i className='fas fa-phone info-icon'></i>
-                <p>(999) 999-9999</p>
+                <p>{number}</p>
               </div>
               <div className='info'>
                 <i className='fas fa-map-marker-alt info-icon'></i>
-                <p>12345 Main St, Westminster 92647</p>
+                <p>
+                  {address}, {city} {state} {zip}
+                </p>
               </div>
             </div>
             <div id='skills-container'>

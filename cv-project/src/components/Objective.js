@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 class Objective extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   render() {
+    const { handleChange } = this.props;
     return (
       <div id='resume-obj-container'>
         <h2>Resume objective</h2>
@@ -12,6 +13,7 @@ class Objective extends Component {
           <textarea
             name='objective'
             placeholder='Summarize your career goals'
+            onChange={handleChange('objective')}
             required
           ></textarea>
         </div>

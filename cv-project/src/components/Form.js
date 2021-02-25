@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PersonalInfo from './PersonalInfo';
 import Objective from './Objective';
-import Experience from './Experience';
+import Experience from './Experience/Experience';
 import Education from './Education';
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
+
   render() {
     return (
       <form id='form'>
-        <PersonalInfo />
+        <PersonalInfo
+          handleFirstNameChange={this.props.handleFirstNameChange}
+        />
         <Objective />
         <Experience />
         <Education />

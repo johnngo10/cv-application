@@ -6,7 +6,7 @@ class Experience extends Component {
     super(props);
 
     this.state = {
-      jobInputs: [1],
+      jobInputs: [],
       jobsObj: [],
       arr: [],
     };
@@ -58,7 +58,6 @@ class Experience extends Component {
 
   render() {
     const { jobInputs } = this.state;
-    const { handleExperienceChange } = this.props;
 
     return (
       <div id='experience-container'>

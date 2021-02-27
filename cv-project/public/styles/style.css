@@ -258,11 +258,17 @@ p {
 #add-experience-button {
   padding: 10px;
   margin: 5px 0;
-  color: white;
-  background-color: #0e2f44;
+  width: 100%;
+  color: black;
+  background-color: rgb(235, 235, 235);
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  outline: none;
+}
+
+#add-experience-button:hover {
+  opacity: 0.8;
 }
 
 /* Education */
@@ -287,7 +293,7 @@ p {
   outline: none;
 }
 
-#add-education-button {
+.submit-school {
   padding: 10px;
   margin: 5px 0;
   color: white;
@@ -295,6 +301,23 @@ p {
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  outline: none;
+}
+
+#add-education-button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  color: black;
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+#add-education-button:hover {
+  opacity: 0.8;
 }
 
 /* Licenses & Certificates */
@@ -316,6 +339,17 @@ p {
   width: 45%;
   border: 1px solid lightgray;
   border-radius: 2px;
+  outline: none;
+}
+
+.submit-cert {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
   outline: none;
 }
 

@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PersonalInfo from './components/PersonalInfo';
 import Objective from './components/Objective';
 import Experience from './components/Experience/Experience';
-import Education from './components/Education';
-import Certification from './components/Certification';
+import Education from './components/Education/Education';
+import Certification from './components/Certification/Certification';
 import Form from './components/Form';
 import Resume from './components/Resume';
 
@@ -24,11 +24,15 @@ class App extends Component {
       title: '',
       objective: '',
       experience: [],
+      education: [],
+      certification: [],
       submitted: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
+    this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleCertificationChange = this.handleCertificationChange.bind(this);
   }
 
   handleChange = input => e => {
@@ -50,6 +54,18 @@ class App extends Component {
     });
   }
 
+  handleEducationChange(arr) {
+    this.setState({
+      education: arr,
+    });
+  }
+
+  handleCertificationChange(arr) {
+    this.setState({
+      certification: arr,
+    });
+  }
+
   render() {
     const {
       firstName,
@@ -63,6 +79,8 @@ class App extends Component {
       title,
       objective,
       experience,
+      education,
+      certification,
       submitted,
     } = this.state;
 
@@ -81,14 +99,18 @@ class App extends Component {
             objective={objective}
             title={title}
             experience={experience}
+            education={education}
+            certification={certification}
           />
         ) : (
           <form id='form' onSubmit={this.handleSubmit}>
             <PersonalInfo handleChange={this.handleChange} />
             <Objective handleChange={this.handleChange} />
             <Experience handleExperienceChange={this.handleExperienceChange} />
-            <Education />
-            <Certification />
+            <Education handleEducationChange={this.handleEducationChange} />
+            <Certification
+              handleCertificationChange={this.handleCertificationChange}
+            />
             <div id='submit-container'>
               <input type='submit' id='submit'></input>
             </div>

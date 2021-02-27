@@ -32,8 +32,7 @@ class Jobs extends Component {
   }
 
   handleAdd() {
-    const { title, company, from, to, activities, jobs } = this.state;
-    const { handleJobObjects } = this.props;
+    const { title, company, from, to, activities } = this.state;
     const job = {
       title: title,
       company: company,

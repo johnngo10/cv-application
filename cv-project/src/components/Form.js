@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PersonalInfo from './PersonalInfo';
 import Objective from './Objective';
 import Experience from './Experience/Experience';
-import Education from './Education';
+import Education from './Education/Education';
 
 class Form extends Component {
   constructor(props) {

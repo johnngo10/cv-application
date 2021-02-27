@@ -18,6 +18,8 @@ class Resume extends Component {
       objective,
       title,
       experience,
+      education,
+      certification,
     } = this.props;
 
     return (
@@ -51,34 +53,6 @@ class Resume extends Component {
                     </div>
                   );
                 })}
-                {/* <div className='jobs'>
-                  <h3>{experience[0].title}</h3>
-                  <h4>
-                    {experience[0].company} / {experience[0].from} -{' '}
-                    {experience[0].to}
-                  </h4>
-                  <p>{experience[0].activities}</p>
-                </div>
-                <div className='jobs'>
-                  <h3>IT Support</h3>
-                  <h4>
-                    TechHub, Westminster, CA / September 2014 - December 2015
-                  </h4>
-                  <ul>
-                    <li>
-                      Morbi enim nunc faucibus a pellentesque. Quis viverra nibh
-                      cras pulvinar mattis.
-                    </li>
-                    <li>
-                      Amet porttitor eget dolor morbi. Nunc congue nisi vitae
-                      suscipit tellus mauris a diam maecenas.{' '}
-                    </li>
-                    <li>
-                      Purus semper eget duis at tellus at urna condimentum.
-                      Viverra suspendisse potenti nullam ac tortor vitae.{' '}
-                    </li>
-                  </ul>
-                </div> */}
               </div>
             </div>
           </div>
@@ -109,18 +83,37 @@ class Resume extends Component {
             </div>
             <div className='education-container'>
               <h2 className='category'>EDUCATION</h2>
-              <div>
+              {education.map(school => {
+                return (
+                  <div key={uniqid()}>
+                    <h3>{school.schoolName}</h3>
+                    <p>{school.degree}</p>
+                    <p>
+                      {school.from} - {school.to}
+                    </p>
+                  </div>
+                );
+              })}
+              {/* <div>
                 <h3>University of California, Merced</h3>
                 <p>Bachelor of Science in Management and Business Economics</p>
                 <p>Aug 2015 - Nov 2018</p>
-              </div>
+              </div> */}
             </div>
             <div id='certification-container'>
               <h2 className='category'>LICENSES & CERTIFICATES</h2>
-              <div>
+              {certification.map(cert => {
+                return (
+                  <div key={uniqid()}>
+                    <p>{cert.name}</p>
+                    <p>{cert.date}</p>
+                  </div>
+                );
+              })}
+              {/* <div>
                 <p>Google IT Certificate</p>
                 <p>2015</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </main>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 class Resume extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Resume extends Component {
       zip,
       objective,
       title,
+      experience,
     } = this.props;
 
     return (
@@ -38,25 +40,24 @@ class Resume extends Component {
             <div>
               <h2 className='category'>EXPERIENCE</h2>
               <div>
-                <div className='jobs'>
-                  <h3>Web Developer</h3>
+                {experience.map(job => {
+                  return (
+                    <div className='jobs' key={uniqid()}>
+                      <h3>{job.title}</h3>
+                      <h4>
+                        {job.company} / {job.from} - {job.to}
+                      </h4>
+                      <p>{job.activities}</p>
+                    </div>
+                  );
+                })}
+                {/* <div className='jobs'>
+                  <h3>{experience[0].title}</h3>
                   <h4>
-                    McGee Solutions, Westminster, CA / September 2016 - Present
+                    {experience[0].company} / {experience[0].from} -{' '}
+                    {experience[0].to}
                   </h4>
-                  <ul>
-                    <li>
-                      Morbi enim nunc faucibus a pellentesque. Quis viverra nibh
-                      cras pulvinar mattis.
-                    </li>
-                    <li>
-                      Amet porttitor eget dolor morbi. Nunc congue nisi vitae
-                      suscipit tellus mauris a diam maecenas.{' '}
-                    </li>
-                    <li>
-                      Purus semper eget duis at tellus at urna condimentum.
-                      Viverra suspendisse potenti nullam ac tortor vitae.{' '}
-                    </li>
-                  </ul>
+                  <p>{experience[0].activities}</p>
                 </div>
                 <div className='jobs'>
                   <h3>IT Support</h3>
@@ -77,7 +78,7 @@ class Resume extends Component {
                       Viverra suspendisse potenti nullam ac tortor vitae.{' '}
                     </li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

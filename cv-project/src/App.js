@@ -44,7 +44,11 @@ class App extends Component {
     });
   }
 
-  handleExperienceChange() {}
+  handleExperienceChange(arr) {
+    this.setState({
+      experience: arr,
+    });
+  }
 
   render() {
     const {
@@ -58,6 +62,7 @@ class App extends Component {
       zip,
       title,
       objective,
+      experience,
       submitted,
     } = this.state;
 
@@ -75,12 +80,13 @@ class App extends Component {
             zip={zip}
             objective={objective}
             title={title}
+            experience={experience}
           />
         ) : (
           <form id='form' onSubmit={this.handleSubmit}>
             <PersonalInfo handleChange={this.handleChange} />
             <Objective handleChange={this.handleChange} />
-            <Experience />
+            <Experience handleExperienceChange={this.handleExperienceChange} />
             <Education />
             <Certification />
             <div id='submit-container'>
@@ -94,7 +100,3 @@ class App extends Component {
 }
 
 export default App;
-
-// Create a state with an array of job objects
-// Pass experience state array as prop to resume component
-// Resume will map prop and render the jobs

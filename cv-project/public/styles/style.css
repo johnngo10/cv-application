@@ -207,8 +207,18 @@ p {
   outline: none;
 }
 
-#add-activities-container {
-  /* border: 1px solid black; */
+.experience-form textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  width: 97%;
+  height: 50px;
+  resize: none;
+  outline: none;
+}
+
+/* #add-activities-container {
   padding: 10px;
   margin: 5px 0;
   width: 45%;
@@ -217,10 +227,32 @@ p {
   color: #333333;
   cursor: pointer;
   border-radius: 2px;
+} */
+
+.submit-job {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
 }
 
 .fa-plus {
   margin-right: 5px;
+}
+
+.delete {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
 }
 
 #add-experience-button {

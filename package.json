@@ -1,6 +1,6 @@
 {
   "homepage":"http://xuanngo10.github.io/cv-application",
-  "name": "cv-project",
+  "name": "cv-application",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

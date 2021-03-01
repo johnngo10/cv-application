@@ -84,14 +84,14 @@ class Resume extends Component {
                 </p>
               </div>
             </div>
-            <div id='skills-container'>
+            {/* <div id='skills-container'>
               <h2 className='category'>SKILLS</h2>
               <ul>
                 <li>Web Development</li>
                 <li>Problem Solving</li>
                 <li>Time Management</li>
               </ul>
-            </div>
+            </div> */}
             <div className='education-container'>
               <h2 className='category'>EDUCATION</h2>
               {education.map(school => {
@@ -105,11 +105,6 @@ class Resume extends Component {
                   </div>
                 );
               })}
-              {/* <div>
-                <h3>University of California, Merced</h3>
-                <p>Bachelor of Science in Management and Business Economics</p>
-                <p>Aug 2015 - Nov 2018</p>
-              </div> */}
             </div>
             <div id='certification-container'>
               <h2 className='category'>LICENSES & CERTIFICATES</h2>
@@ -121,10 +116,6 @@ class Resume extends Component {
                   </div>
                 );
               })}
-              {/* <div>
-                <p>Google IT Certificate</p>
-                <p>2015</p>
-              </div> */}
             </div>
           </div>
         </main>

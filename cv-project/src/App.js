@@ -129,9 +129,13 @@ class App extends Component {
               handleExperienceChange={this.handleExperienceChange}
               experience={experience}
             />
-            <Education handleEducationChange={this.handleEducationChange} />
+            <Education
+              handleEducationChange={this.handleEducationChange}
+              education={education}
+            />
             <Certification
               handleCertificationChange={this.handleCertificationChange}
+              certification={certification}
             />
             <div id='submit-container'>
               <input type='submit' id='submit'></input>

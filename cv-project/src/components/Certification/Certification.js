@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Certificate from './Certificate';
-import uniqid from 'uniqid';
 
 class Certification extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      certInputs: [],
+      certInputs: this.props.certification,
       certObj: [],
       arr: [],
     };
@@ -16,12 +15,12 @@ class Certification extends Component {
     this.handleConcatCertsToArr = this.handleConcatCertsToArr.bind(this);
     this.handleCertsObjects = this.handleCertsObjects.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
-    this.handleRemoveInput = this.handleRemoveInput.bind(this);
+    this.handleRemoveCert = this.handleRemoveCert.bind(this);
   }
 
   handleAddCerts(e) {
     let certs = this.state.certInputs;
-    certs.push(uniqid());
+    certs.push(1);
     this.setState({
       certInputs: certs,
     });
@@ -58,16 +57,19 @@ class Certification extends Component {
     );
   }
 
-  handleRemoveInput(id) {
+  handleRemoveCert(index) {
     let arr = this.state.certInputs;
-    let index = arr.indexOf(id);
-    if (index > -1) {
-      arr.splice(index, 1);
-    }
+    arr.splice(index, 1);
 
-    this.setState({
-      certInputs: arr,
-    });
+    this.setState(
+      {
+        certInputs: arr,
+        certObj: arr,
+      },
+      () => {
+        this.handlePushArr();
+      }
+    );
   }
 
   render() {
@@ -80,9 +82,12 @@ class Certification extends Component {
           return (
             <Certificate
               key={index}
-              id={value}
+              index={index}
               handleCertsObjects={this.handleCertsObjects}
-              handleRemoveInput={this.handleRemoveInput}
+              handleRemoveCert={this.handleRemoveCert}
+              name={value.name}
+              date={value.date}
+              submitted={value.submitted}
             />
           );
         })}

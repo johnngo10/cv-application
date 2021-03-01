@@ -10,13 +10,13 @@ class Certificate extends Component {
       certs: [],
       checked: false,
       submitted: false,
-      id: this.props.id,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
-    this.handleCancel = this.handleCancel.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handlePushArr() {
@@ -26,10 +26,11 @@ class Certificate extends Component {
   }
 
   handleAdd() {
-    const { name, date } = this.state;
+    const { name, date, submitted } = this.state;
     const cert = {
       name: name,
       date: date,
+      submitted: submitted,
     };
     let arr = [];
     arr.push(cert);
@@ -37,7 +38,6 @@ class Certificate extends Component {
     this.setState(
       {
         certs: arr,
-        submitted: true,
       },
       () => {
         this.handlePushArr();
@@ -45,11 +45,20 @@ class Certificate extends Component {
     );
   }
 
-  handleCancel() {
-    const { id } = this.state;
-    const { handleRemoveInput } = this.props;
-    console.log(id);
-    handleRemoveInput(id);
+  handleDelete() {
+    const { handleRemoveCert, index } = this.props;
+    handleRemoveCert(index);
+  }
+
+  handleSubmit() {
+    this.setState(
+      {
+        submitted: true,
+      },
+      () => {
+        this.handleAdd();
+      }
+    );
   }
 
   handleChange = input => e => {
@@ -59,25 +68,29 @@ class Certificate extends Component {
   };
 
   render() {
-    const { submitted, id } = this.state;
+    const { name, date, submitted } = this.props;
     return (
       <div className='cert-form'>
         <input
           placeholder='name'
           type='text'
+          value={name}
+          disabled={submitted === undefined ? this.state.submitted : submitted}
           onChange={this.handleChange('name')}
         ></input>
         <input
           placeholder='Date of completion'
           type='date'
+          value={date}
+          disabled={submitted === undefined ? this.state.submitted : submitted}
           onChange={this.handleChange('date')}
         ></input>
-        {submitted === false ? (
+        {this.state.submitted === false && submitted === undefined ? (
           <div>
             <button
               type='button'
               className='submit-cert'
-              onClick={this.handleAdd}
+              onClick={this.handleSubmit}
             >
               <span>
                 <i className='fas fa-plus'></i>
@@ -87,13 +100,13 @@ class Certificate extends Component {
             <button
               type='button'
               className='cancel'
-              onClick={this.handleCancel}
+              onClick={this.handleDelete}
             >
               Cancel
             </button>
           </div>
         ) : (
-          <button type='button' className='delete'>
+          <button type='button' className='delete' onClick={this.handleDelete}>
             Delete
           </button>
         )}

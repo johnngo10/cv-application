@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import School from './School';
 
 class Education extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      schoolInputs: [],
+      schoolInputs: this.props.education,
       schoolObj: [],
       arr: [],
     };
@@ -15,6 +15,7 @@ class Education extends Component {
     this.handleConcatSchoolToArr = this.handleConcatSchoolToArr.bind(this);
     this.handleSchoolObjects = this.handleSchoolObjects.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
+    this.handleRemoveSchool = this.handleRemoveSchool.bind(this);
   }
 
   handleAddSchools(e) {
@@ -23,6 +24,21 @@ class Education extends Component {
     this.setState({
       schoolInputs: schools,
     });
+  }
+
+  handleRemoveSchool(index) {
+    let arr = this.state.schoolInputs;
+    arr.splice(index, 1);
+
+    this.setState(
+      {
+        schoolInputs: arr,
+        schoolObj: arr,
+      },
+      () => {
+        this.handlePushArr();
+      }
+    );
   }
 
   // Push education array up to App Component
@@ -65,7 +81,15 @@ class Education extends Component {
           return (
             <School
               key={index}
+              index={index}
+              handleRemoveSchool={this.handleRemoveSchool}
               handleSchoolObjects={this.handleSchoolObjects}
+              schoolName={value.schoolName}
+              degree={value.degree}
+              from={value.from}
+              to={value.to}
+              checked={value.checked}
+              submitted={value.submitted}
             />
           );
         })}

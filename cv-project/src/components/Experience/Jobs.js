@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uniqid from 'uniqid';
 
 class Jobs extends Component {
   constructor(props) {
@@ -36,7 +35,6 @@ class Jobs extends Component {
 
   handleAdd() {
     const {
-      id,
       title,
       company,
       from,
@@ -90,10 +88,8 @@ class Jobs extends Component {
   };
 
   handlePresentDate(e) {
-    const target = e.target;
-    const date = new Date();
     const check = e.target.checked;
-    const toDate = target;
+
     if (check) {
       this.setState({
         toDate: this.state.to,
@@ -109,7 +105,6 @@ class Jobs extends Component {
   }
 
   render() {
-    // const { checked, submitted, toDate } = this.state;
     const {
       title,
       company,
@@ -158,7 +153,13 @@ class Jobs extends Component {
           value={to === 'Present' ? '' : to}
           onChange={this.handleChange('to')}
           disabled={
-            this.state.submitted ? true : this.state.checked ? true : false
+            this.state.submitted
+              ? true
+              : this.state.checked
+              ? true
+              : submitted
+              ? true
+              : false
           }
           required
         ></input>
@@ -183,47 +184,30 @@ class Jobs extends Component {
           required
         ></textarea>
         {this.state.submitted === false && submitted === undefined ? (
-          <button
-            type='button'
-            className='submit-job'
-            onClick={this.handleSubmit}
-          >
-            <span>
-              <i className='fas fa-plus'></i>
-            </span>
-            Submit
-          </button>
+          <div>
+            <button
+              type='button'
+              className='submit-job'
+              onClick={this.handleSubmit}
+            >
+              <span>
+                <i className='fas fa-plus'></i>
+              </span>
+              Submit
+            </button>
+            <button
+              type='button'
+              className='cancel'
+              onClick={this.handleDelete}
+            >
+              Cancel
+            </button>
+          </div>
         ) : (
           <button type='button' className='delete' onClick={this.handleDelete}>
             Delete
           </button>
         )}
-        {/* <input
-          name='activities'
-          placeholder='Activities & Responsiblities'
-          type='text'
-          className='experience-fields'
-        ></input>
-        <input
-          name='activities'
-          placeholder='Activities & Responsiblities'
-          type='text'
-          className='experience-fields'
-        ></input>
-        <input
-          name='activities'
-          placeholder='Activities & Responsiblities'
-          type='text'
-          className='experience-fields'
-        ></input> */}
-        {/* <div id='add-activities-container' onClick={this.handleAdd}>
-          <p id='add-activities'>
-            <span>
-              <i className='fas fa-plus'></i>
-            </span>
-            Add
-          </p>
-        </div> */}
       </div>
     );
   }

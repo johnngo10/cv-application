@@ -131,12 +131,6 @@ p {
 }
 
 /* Forms */
-/* #form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 /* Personal Info */
 #pesonal-info-form-container {
@@ -217,17 +211,6 @@ p {
   resize: none;
   outline: none;
 }
-
-/* #add-activities-container {
-  padding: 10px;
-  margin: 5px 0;
-  width: 45%;
-  text-align: center;
-  background-color: #eeeeee;
-  color: #333333;
-  cursor: pointer;
-  border-radius: 2px;
-} */
 
 .submit-job {
   padding: 10px;

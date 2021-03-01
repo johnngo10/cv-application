@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Jobs from './Jobs';
-import uniqid from 'uniqid';
 
 class Experience extends Component {
   constructor(props) {

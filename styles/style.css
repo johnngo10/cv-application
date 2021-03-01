@@ -1,0 +1,427 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* background-color: #eeeeee; */
+  background-color: white;
+  /* height: 100vh; */
+
+  overflow: auto;
+}
+
+.App {
+  width: 850px;
+  margin: 20px;
+  box-shadow: 1px 2px 6px #333333;
+  background-color: white;
+  height: 100%;
+}
+
+/* Resume */
+
+#resume-container {
+  height: 100%;
+}
+
+/* Header */
+
+#header {
+  background-color: #0e2f44;
+  text-align: center;
+  color: #f4f4f4;
+  padding: 10px;
+  height: 100px;
+}
+
+#name {
+  margin: 10px;
+}
+
+#title {
+  margin: 10px;
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  margin: auto;
+}
+
+/* Main */
+
+#main {
+  display: flex;
+  height: 87.3%;
+  background-color: white;
+  width: 100%;
+}
+
+/* Col 1 */
+
+#col-1 {
+  padding: 20px;
+  width: 75%;
+}
+
+#objective {
+  margin-bottom: 30px;
+}
+
+.category {
+  margin: 10px 0;
+}
+
+.jobs {
+  margin: 10px 0;
+}
+
+.jobs li {
+  margin: 5px 20px;
+}
+
+.jobs h4 {
+  font-style: italic;
+}
+
+/* Col 2 */
+
+#col-2 {
+  padding: 20px;
+  width: 25%;
+  background-color: #dddddd;
+}
+
+#info-container {
+  margin-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  margin: 10px;
+}
+
+.info-icon {
+  margin-right: 15px;
+}
+
+/* #skills-container {
+  margin-bottom: 30px;
+}
+
+#skills-container li {
+  margin: 5px 20px;
+} */
+
+.education-container h3,
+p {
+  margin-bottom: 5px;
+}
+
+.education-container {
+  margin-bottom: 30px;
+}
+
+/* Forms */
+
+/* Personal Info */
+#pesonal-info-form-container {
+  padding: 40px 40px 0 40px;
+}
+
+.pesonal-info-form {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.persona-info-input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 45%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+#persona-info-title {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+/* Resume Objective */
+
+#resume-obj-container {
+  padding: 0 40px;
+}
+
+#resume-obj-container textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  width: 97%;
+  height: 50px;
+  resize: none;
+  outline: none;
+}
+
+/* Experience */
+
+#experience-container {
+  padding: 0 40px 20px 40px;
+}
+
+.experience-form {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.experience-fields {
+  padding: 10px;
+  margin: 5px 0;
+  width: 45%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+.experience-form textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  width: 97%;
+  height: 50px;
+  resize: none;
+  outline: none;
+}
+
+.submit-job {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.fa-plus {
+  margin-right: 5px;
+}
+
+.delete {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+#add-experience-button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  color: black;
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+#add-experience-button:hover {
+  opacity: 0.8;
+}
+
+/* Education */
+
+#education-container {
+  padding: 0 40px 20px 40px;
+}
+
+.education-form {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.education-input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 45%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+.submit-school {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+#add-education-button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  color: black;
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+#add-education-button:hover {
+  opacity: 0.8;
+}
+
+/* Licenses & Certificates */
+
+#cert-container {
+  padding: 0 40px 20px 40px;
+}
+
+.cert-form {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#cert-container input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 45%;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+.submit-cert {
+  padding: 10px;
+  margin: 5px 0;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Present Date Switch */
+
+.from-date:before {
+  content: attr(placeholder) !important;
+  color: gray;
+  margin-right: 0.5em;
+}
+
+.to-date {
+  width: 28.5%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  outline: none;
+}
+
+.to-date:before {
+  content: attr(placeholder) !important;
+  color: gray;
+  margin-right: 0.5em;
+}
+
+.to-date:focus:before,
+.to-date:valid:before {
+  content: '';
+}
+
+.switch {
+  display: inline-block;
+  margin: auto 0;
+  width: 12%;
+}
+
+.toggle-ongoing {
+  width: 20%;
+  margin-right: 4px;
+}
+
+/* Submit form */
+#submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+  padding: 10px 20px;
+  margin: 40px;
+  color: white;
+  background-color: #0e2f44;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.cancel {
+  margin-left: 10px;
+  background-color: lightgray;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.cancel:hover {
+  opacity: 0.8;
+}
+
+.edit {
+  position: absolute;
+  padding: 10px;
+  right: 450px;
+  top: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: lightgray;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  outline: none;
+}
+
+.edit:hover {
+  opacity: 0.8;
+}

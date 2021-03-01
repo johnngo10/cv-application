@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PersonalInfo from './components/PersonalInfo';
 import Objective from './components/Objective';
 import Experience from './components/Experience/Experience';
 import Education from './components/Education/Education';
 import Certification from './components/Certification/Certification';
-import Form from './components/Form';
 import Resume from './components/Resume';
 
 class App extends Component {

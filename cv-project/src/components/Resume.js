@@ -84,14 +84,6 @@ class Resume extends Component {
                 </p>
               </div>
             </div>
-            {/* <div id='skills-container'>
-              <h2 className='category'>SKILLS</h2>
-              <ul>
-                <li>Web Development</li>
-                <li>Problem Solving</li>
-                <li>Time Management</li>
-              </ul>
-            </div> */}
             <div className='education-container'>
               <h2 className='category'>EDUCATION</h2>
               {education.map(school => {

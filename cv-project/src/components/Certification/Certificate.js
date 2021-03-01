@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Certificate extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: '',
@@ -10,17 +10,18 @@ class Certificate extends Component {
       certs: [],
       checked: false,
       submitted: false,
+      id: this.props.id,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handlePushArr() {
     const { certs } = this.state;
     const { handleCertsObjects } = this.props;
-
     handleCertsObjects(certs);
   }
 
@@ -44,6 +45,13 @@ class Certificate extends Component {
     );
   }
 
+  handleCancel() {
+    const { id } = this.state;
+    const { handleRemoveInput } = this.props;
+    console.log(id);
+    handleRemoveInput(id);
+  }
+
   handleChange = input => e => {
     this.setState({
       [input]: e.target.value,
@@ -51,30 +59,39 @@ class Certificate extends Component {
   };
 
   render() {
-    const { submitted } = this.state;
+    const { submitted, id } = this.state;
     return (
       <div className='cert-form'>
         <input
           placeholder='name'
           type='text'
-          onChange={this.handleChange}
+          onChange={this.handleChange('name')}
         ></input>
         <input
           placeholder='Date of completion'
           type='date'
-          onChange={this.handleChange}
+          onChange={this.handleChange('date')}
         ></input>
         {submitted === false ? (
-          <button
-            type='button'
-            className='submit-cert'
-            onClick={this.handleAdd}
-          >
-            <span>
-              <i className='fas fa-plus'></i>
-            </span>
-            Submit
-          </button>
+          <div>
+            <button
+              type='button'
+              className='submit-cert'
+              onClick={this.handleAdd}
+            >
+              <span>
+                <i className='fas fa-plus'></i>
+              </span>
+              Submit
+            </button>
+            <button
+              type='button'
+              className='cancel'
+              onClick={this.handleCancel}
+            >
+              Cancel
+            </button>
+          </div>
         ) : (
           <button type='button' className='delete'>
             Delete

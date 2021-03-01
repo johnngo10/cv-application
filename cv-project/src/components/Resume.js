@@ -4,7 +4,15 @@ import uniqid from 'uniqid';
 class Resume extends Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick() {
+    const { handleEdit } = this.props;
+    handleEdit();
+  }
+
   render() {
     const {
       firstName,
@@ -30,6 +38,9 @@ class Resume extends Component {
           </h1>
           <div className='divider'></div>
           <div id='title'>{title}</div>
+          <button type='button' className='edit' onClick={this.handleClick}>
+            <i className='fas fa-edit'></i>
+          </button>
         </header>
         <main id='main'>
           <div id='col-1'>

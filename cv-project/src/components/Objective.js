@@ -5,7 +5,7 @@ class Objective extends Component {
     super(props);
   }
   render() {
-    const { handleChange } = this.props;
+    const { handleChange, objective } = this.props;
     return (
       <div id='resume-obj-container'>
         <h2>Resume objective</h2>
@@ -14,6 +14,7 @@ class Objective extends Component {
             name='objective'
             placeholder='Summarize your career goals'
             onChange={handleChange('objective')}
+            value={objective}
             required
           ></textarea>
         </div>

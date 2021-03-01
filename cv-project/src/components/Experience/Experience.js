@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Jobs from './Jobs';
+import uniqid from 'uniqid';
 
 class Experience extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      jobInputs: [],
+      jobInputs: this.props.experience,
       jobsObj: [],
       arr: [],
     };
@@ -15,6 +16,7 @@ class Experience extends Component {
     this.handleConcatJobToArr = this.handleConcatJobToArr.bind(this);
     this.handleJobObjects = this.handleJobObjects.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
+    this.handleRemoveJob = this.handleRemoveJob.bind(this);
   }
 
   handleAddJobs(e) {
@@ -23,6 +25,21 @@ class Experience extends Component {
     this.setState({
       jobInputs: jobs,
     });
+  }
+
+  handleRemoveJob(index) {
+    let arr = this.state.jobInputs;
+    arr.splice(index, 1);
+
+    this.setState(
+      {
+        jobInputs: arr,
+        jobsObj: arr,
+      },
+      () => {
+        this.handlePushArr();
+      }
+    );
   }
 
   // Push job array up to App Component
@@ -63,7 +80,21 @@ class Experience extends Component {
       <div id='experience-container'>
         <h2>Experience</h2>
         {jobInputs.map((value, index) => {
-          return <Jobs key={index} handleJobObjects={this.handleJobObjects} />;
+          return (
+            <Jobs
+              key={index}
+              index={index}
+              handleJobObjects={this.handleJobObjects}
+              handleRemoveJob={this.handleRemoveJob}
+              title={value.title}
+              company={value.company}
+              from={value.from}
+              to={value.to}
+              activities={value.activities}
+              checked={value.checked}
+              submitted={value.submitted}
+            />
+          );
         })}
         <button
           type='button'

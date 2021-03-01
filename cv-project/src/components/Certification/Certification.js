@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Certificate from './Certificate';
+import uniqid from 'uniqid';
 
 class Certification extends Component {
   constructor() {
@@ -15,11 +16,12 @@ class Certification extends Component {
     this.handleConcatCertsToArr = this.handleConcatCertsToArr.bind(this);
     this.handleCertsObjects = this.handleCertsObjects.bind(this);
     this.handlePushArr = this.handlePushArr.bind(this);
+    this.handleRemoveInput = this.handleRemoveInput.bind(this);
   }
 
   handleAddCerts(e) {
     let certs = this.state.certInputs;
-    certs.push(1);
+    certs.push(uniqid());
     this.setState({
       certInputs: certs,
     });
@@ -56,16 +58,31 @@ class Certification extends Component {
     );
   }
 
+  handleRemoveInput(id) {
+    let arr = this.state.certInputs;
+    let index = arr.indexOf(id);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+
+    this.setState({
+      certInputs: arr,
+    });
+  }
+
   render() {
     const { certInputs } = this.state;
     return (
       <div id='cert-container'>
         <h2>Licenses & Certificates</h2>
+
         {certInputs.map((value, index) => {
           return (
             <Certificate
               key={index}
+              id={value}
               handleCertsObjects={this.handleCertsObjects}
+              handleRemoveInput={this.handleRemoveInput}
             />
           );
         })}

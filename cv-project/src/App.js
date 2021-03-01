@@ -30,6 +30,7 @@ class App extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.handleExperienceChange = this.handleExperienceChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleCertificationChange = this.handleCertificationChange.bind(this);
@@ -45,6 +46,12 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       submitted: true,
+    });
+  }
+
+  handleEdit() {
+    this.setState({
+      submitted: false,
     });
   }
 
@@ -101,12 +108,27 @@ class App extends Component {
             experience={experience}
             education={education}
             certification={certification}
+            handleEdit={this.handleEdit}
           />
         ) : (
           <form id='form' onSubmit={this.handleSubmit}>
-            <PersonalInfo handleChange={this.handleChange} />
-            <Objective handleChange={this.handleChange} />
-            <Experience handleExperienceChange={this.handleExperienceChange} />
+            <PersonalInfo
+              handleChange={this.handleChange}
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              number={number}
+              address={address}
+              city={city}
+              state={state}
+              zip={zip}
+              title={title}
+            />
+            <Objective handleChange={this.handleChange} objective={objective} />
+            <Experience
+              handleExperienceChange={this.handleExperienceChange}
+              experience={experience}
+            />
             <Education handleEducationChange={this.handleEducationChange} />
             <Certification
               handleCertificationChange={this.handleCertificationChange}

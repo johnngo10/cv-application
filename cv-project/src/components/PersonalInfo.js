@@ -6,7 +6,18 @@ class PersonalInfo extends Component {
   }
 
   render() {
-    const { handleChange } = this.props;
+    const {
+      handleChange,
+      firstName,
+      lastName,
+      email,
+      number,
+      address,
+      city,
+      state,
+      zip,
+      title,
+    } = this.props;
 
     return (
       <div id='pesonal-info-form-container'>
@@ -18,7 +29,7 @@ class PersonalInfo extends Component {
             placeholder='First Name'
             type='text'
             onChange={handleChange('firstName')}
-            // value={firstName}
+            value={firstName}
             required
           ></input>
           <input
@@ -27,7 +38,7 @@ class PersonalInfo extends Component {
             placeholder='Last Name'
             type='text'
             onChange={handleChange('lastName')}
-            // value={lastName}
+            value={lastName}
             required
           ></input>
           <input
@@ -36,7 +47,7 @@ class PersonalInfo extends Component {
             placeholder='Email'
             type='text'
             onChange={handleChange('email')}
-            // value={email}
+            value={email}
           ></input>
           <input
             className='persona-info-input'
@@ -45,7 +56,7 @@ class PersonalInfo extends Component {
             type='tel'
             pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
             onChange={handleChange('number')}
-            // value={number}
+            value={number}
             required
           ></input>
         </div>
@@ -56,7 +67,7 @@ class PersonalInfo extends Component {
             placeholder='Address'
             type='text'
             onChange={handleChange('address')}
-            // value={address}
+            value={address}
             required
           ></input>
           <input
@@ -65,7 +76,7 @@ class PersonalInfo extends Component {
             placeholder='City'
             type='text'
             onChange={handleChange('city')}
-            // value={city}
+            value={city}
             required
           ></input>
           <input
@@ -74,7 +85,7 @@ class PersonalInfo extends Component {
             placeholder='State'
             type='text'
             onChange={handleChange('state')}
-            // value={state}
+            value={state}
             required
           ></input>
           <input
@@ -83,7 +94,7 @@ class PersonalInfo extends Component {
             placeholder='Zip'
             type='text'
             onChange={handleChange('zip')}
-            // value={zip}
+            value={zip}
             required
           ></input>
           <input
@@ -92,7 +103,7 @@ class PersonalInfo extends Component {
             type='text'
             id='persona-info-title'
             onChange={handleChange('title')}
-            // value={title}
+            value={title}
             required
           ></input>
         </div>
